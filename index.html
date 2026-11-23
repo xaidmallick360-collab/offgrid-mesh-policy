@@ -44,44 +44,57 @@
 <body>
     <div class="container">
         <h1>Privacy Policy for OffGrid Mesh : chat offline</h1>
-        <p><strong>Effective Date:</strong> November 21, 2026</p>
+        <p><strong>Effective Date:</strong> November 22, 2026</p>
         <p><strong>Developer:</strong> Amin Chopan</p>
 
         <div class="highlight">
-            <strong>Summary:</strong> OffGrid Mesh is a peer-to-peer decentralized offline messenger. It does not collect, store, sell, or transmit any personal data, accounts, contacts, or location data to any central server or third party.
+            <strong>Summary:</strong> OffGrid Mesh needs no account, phone number or email. Messages are end-to-end encrypted on your phone. Nearby, they travel directly between phones over Bluetooth and Wi-Fi. When your phone has internet and you are set to <em>Online</em>, the app also uses a cloud mailbox (Google Firebase Realtime Database) to deliver encrypted messages and encrypted photos and voice notes to friends who are far away or offline. We do not run analytics or advertising and we cannot read your messages.
         </div>
 
-        <h2>1. Information We Do Not Collect</h2>
-        <p>We believe in absolute user privacy. OffGrid Mesh operates with zero account registration:</p>
+        <h2>1. What we do not collect</h2>
         <ul>
-            <li>No phone numbers or email addresses are requested or required.</li>
-            <li>No user profiles, advertising identifiers, or analytics tracking SDKs exist in the app.</li>
-            <li>No central servers store your messages, voice notes, photos, or address books.</li>
+            <li>No phone number, email address, name verification, contacts or address book.</li>
+            <li>No advertising identifiers and no analytics or tracking SDKs.</li>
+            <li>No location data is collected or sent by the app.</li>
         </ul>
 
-        <h2>2. Cryptography & Peer-to-Peer Transmission</h2>
-        <p>All communication takes place directly between nearby devices using local Wi-Fi and Bluetooth mesh routing. Every message, voice note, and image is end-to-end encrypted on your device using industry-standard <strong>AES-256-GCM</strong> encryption with <strong>Ed25519</strong> digital signatures. Only the designated recipient holding the corresponding private key can decrypt your transmissions.</p>
-
-        <h2>3. Device Permissions and How They Are Used</h2>
+        <h2>2. Data that is stored on our cloud mailbox (only when you are Online)</h2>
         <ul>
-            <li><strong>Bluetooth & Nearby Wi-Fi Devices:</strong> Used strictly for peer device discovery and direct mesh packet relay. The app declares <code>neverForLocation</code> and does not track your physical location.</li>
-            <li><strong>Microphone:</strong> Used exclusively when you touch and hold the record button to record a voice message. Audio is recorded locally and sent directly to your chosen peer.</li>
-            <li><strong>Camera:</strong> Used exclusively to scan peer QR codes for instant, authenticated cryptographic friend verification.</li>
-            <li><strong>Storage / Media:</strong> Used solely to allow you to select photos you choose to send over the mesh, and to save received media to your device.</li>
-            <li><strong>Foreground Service:</strong> Used to maintain local peer connection relays in the background so that messages can hop device-to-device even when your screen is locked.</li>
+            <li><strong>Encrypted message envelopes</strong> addressed to a pseudonymous mailbox id derived from a device id. They contain encrypted content plus routing details (sender device id, message type, time). Envelopes are meant to be removed once delivered and after 7 days at most.</li>
+            <li><strong>Encrypted photos and voice notes.</strong> Files are encrypted on your phone before upload; the key travels only inside the encrypted chat message. We cannot open them. Uploaded files are kept on the server until the developer removes them.</li>
+            <li><strong>Technical data seen by the cloud provider:</strong> like any internet service, Google and Firebase can see your IP address and the time of each request. The app also contacts a Google connectivity-check address to find out whether you are online. You can switch the app to Offline at any time, and you can route cloud traffic through Tor (requires the Orbot app) in your profile.</li>
+            <li>Messages that stay on the nearby mesh are not sent to any server.</li>
         </ul>
 
-        <h2>4. Data Retention and Panic Deletion</h2>
-        <p>All chats, keys, and media remain exclusively on your physical phone storage. You can permanently erase all keys, identities, messages, photos, and voice notes at any time using the in-app <strong>Panic Wipe ("Erase everything on this phone")</strong> function.</p>
+        <h2>3. Encryption</h2>
+        <p>Private chats use X25519 key exchange, HKDF and AES-256-GCM with per-message keys. Group chats use a shared AES-256-GCM group key. Control messages are signed with Ed25519. Phones that carry messages for others cannot read them. Group chats and the nearby presence announcements (your username, display name, device id and public keys) are visible to phones in range.</p>
 
-        <h2>5. Children's Privacy</h2>
-        <p>OffGrid Mesh does not knowingly collect any information from children under the age of 13. The application is designed for general audiences aged 13 and older.</p>
+        <h2>4. Device permissions and how they are used</h2>
+        <ul>
+            <li><strong>Bluetooth and Nearby devices:</strong> find and connect to nearby phones.</li>
+            <li><strong>Location:</strong> Android requires location access for Bluetooth and Wi-Fi scanning on some Android versions. The app does not read, store or send your location.</li>
+            <li><strong>Microphone:</strong> only while you hold the record button for a voice message.</li>
+            <li><strong>Camera:</strong> to scan friends' QR codes and to take photos you choose to send.</li>
+            <li><strong>Photos:</strong> pictures you pick are copied into the app's private storage and, when you are Online, uploaded encrypted. Received media is kept in the app's private storage and is not added to your gallery.</li>
+            <li><strong>Internet:</strong> for the optional cloud mailbox and media described above.</li>
+            <li><strong>Foreground service, notifications, start after reboot:</strong> keep the mesh running in the background and show new-message alerts (the alert shows who sent it, never the text).</li>
+            <li><strong>Screen lock / biometrics:</strong> used to unlock the app with your phone's own face, fingerprint, PIN or pattern. The app never receives your biometric data.</li>
+        </ul>
 
-        <h2>6. Changes to This Privacy Policy</h2>
-        <p>We may update this Privacy Policy from time to time. Any updates will be reflected with a revised effective date on this page.</p>
+        <h2>5. Data stored on your phone, retention and deletion</h2>
+        <p>Keys, friends, groups and chats are stored on your phone (keys in the Android Keystore-backed secure storage; chats encrypted at rest). You can delete everything with <strong>Erase everything on this phone</strong>. Disappearing-message timers remove messages from your phone only; other people keep the copies they already received. Uninstalling the app removes local data. To ask for removal of cloud-stored items, contact the developer.</p>
 
-        <h2>7. Contact Information</h2>
-        <p>If you have any questions or inquiries regarding this Privacy Policy, you can reach out via your Google Play developer contact email.</p>
+        <h2>6. Sharing</h2>
+        <p>We do not sell or share personal data. Data sent through the cloud mailbox is processed by Google Firebase as our infrastructure provider.</p>
+
+        <h2>7. Children's privacy</h2>
+        <p>OffGrid Mesh does not knowingly collect information from children under 13. The app is designed for general audiences aged 13 and older.</p>
+
+        <h2>8. Changes to this policy</h2>
+        <p>We may update this policy. Changes are shown with a new effective date on this page.</p>
+
+        <h2>9. Contact</h2>
+        <p>Questions or deletion requests: xaidmallick360@gmail.com.</p>
 
         <div class="footer">
             &copy; 2026 OffGrid Mesh. All rights reserved.

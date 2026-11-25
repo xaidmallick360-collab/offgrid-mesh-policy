@@ -60,8 +60,8 @@
 
         <h2>2. Data that is stored on our cloud mailbox (only when you are Online)</h2>
         <ul>
-            <li><strong>Encrypted message envelopes</strong> addressed to a pseudonymous mailbox id derived from a device id. They contain encrypted content plus routing details (sender device id, message type, time). Envelopes are meant to be removed once delivered and after 7 days at most.</li>
-            <li><strong>Encrypted photos and voice notes.</strong> Files are encrypted on your phone before upload; the key travels only inside the encrypted chat message. We cannot open them. Uploaded files are kept on the server until the developer removes them.</li>
+            <li><strong>Encrypted message envelopes</strong> addressed to a pseudonymous mailbox id derived from a device id. They contain encrypted content plus routing details (sender device id, message type, time). Envelopes are removed once delivered and in any case after 7 days.</li>
+            <li><strong>Encrypted photos and voice notes.</strong> Files are encrypted on your phone before upload; the key travels only inside the encrypted chat message. We cannot open them. Uploaded files are deleted from the server after 7 days by an automatic cleanup.</li>
             <li><strong>Technical data seen by the cloud provider:</strong> like any internet service, Google and Firebase can see your IP address and the time of each request. The app also contacts a Google connectivity-check address to find out whether you are online. You can switch the app to Offline at any time, and you can route cloud traffic through Tor (requires the Orbot app) in your profile.</li>
             <li>Messages that stay on the nearby mesh are not sent to any server.</li>
         </ul>
@@ -82,7 +82,7 @@
         </ul>
 
         <h2>5. Data stored on your phone, retention and deletion</h2>
-        <p>Keys, friends, groups and chats are stored on your phone (keys in the Android Keystore-backed secure storage; chats encrypted at rest). You can delete everything with <strong>Erase everything on this phone</strong>. Disappearing-message timers remove messages from your phone only; other people keep the copies they already received. Uninstalling the app removes local data. To ask for removal of cloud-stored items, contact the developer.</p>
+        <p>Keys, friends, groups and chats are stored on your phone (keys in the Android Keystore-backed secure storage; chats encrypted at rest). You can delete everything with <strong>Erase everything on this phone</strong>. All messages and their photos and voice notes are deleted automatically from your phone 7 days after they were sent. Disappearing-message timers can remove them sooner. These deletions happen on each person's own phone: other people delete their own copies on the same schedule. Uninstalling the app removes local data. To ask for removal of cloud-stored items, contact the developer.</p>
 
         <h2>6. Sharing</h2>
         <p>We do not sell or share personal data. Data sent through the cloud mailbox is processed by Google Firebase as our infrastructure provider.</p>
@@ -94,7 +94,7 @@
         <p>We may update this policy. Changes are shown with a new effective date on this page.</p>
 
         <h2>9. Contact</h2>
-        <p>Questions or deletion requests: xaidmallick360@gmail.com.</p>
+        <p>Questions, deletion requests, or reports of abuse or problems: <a href="mailto:xaidmallick360@gmail.com">xaidmallick360@gmail.com</a>. In the app you can also use <strong>Report a problem</strong> in the chat menu and <strong>Block this person</strong>.</p>
 
         <div class="footer">
             &copy; 2026 OffGrid Mesh. All rights reserved.
